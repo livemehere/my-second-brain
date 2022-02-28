@@ -2,9 +2,19 @@
 
 $avatar-size : 100px;
 $border-color : #8d8d8d;
-$side-menu-bg : #F6F6F8;
+$side-menu-bg : #eeeeee;
+$main-color: #673AB6;
+$hover-color-bg: #eeeeee;
+$board-bg:#F5F5F5;
 
 .main{
+  .divider{
+    width: 150px;
+    height: 1px;
+    border-radius: 50%;
+    background: $main-gradient;
+    margin: 2em auto;
+  }
   height: 100vh;
   display: flex;
   .side-menu{
@@ -73,7 +83,7 @@ $side-menu-bg : #F6F6F8;
       border-radius: 10px;
       position: absolute;
       bottom: 20px;
-      background: #673AB6;
+      background: $main-color;
       color:white;
       font-weight: 700;
       box-shadow: $shadow;
@@ -83,12 +93,121 @@ $side-menu-bg : #F6F6F8;
   }
   .board{
     flex:2;
-  }
-  .divider{
-    width: 150px;
-    height: 1px;
-    border-radius: 50%;
-    background: $main-gradient;
-    margin: 2em auto;
+    background-color: $board-bg;
+    .create-form{
+      margin: 20px auto;
+      display: flex;
+      gap: .5em;
+      padding: .5em 2em;
+      border: 1px solid #d4d4d4;
+      box-shadow: $shadow;
+      width: fit-content;
+      border-radius: 10em;
+      input{
+        padding-left: 1em;
+        border: none;
+        background: transparent;
+        outline: none;
+        border-radius: 20px;
+        &:hover{
+          background: $hover-color-bg;
+        }
+      }
+      .react-datepicker-wrapper{
+        width: fit-content;
+      }
+      .custom-datepicker{
+        padding: .5em 1em;
+        border: none;
+        background: transparent;
+        outline: none;
+        color: #777;
+        border-radius: 20px;
+        &:hover{
+          background: $hover-color-bg;
+        }
+      }
+
+      button{
+        background:transparent;
+        border: none;
+        cursor: pointer;
+        i{
+          font-size: 1.5rem;
+          color: $main-color;
+        }
+
+      }
+      .add{
+        transition: all 300ms;
+        &:hover{
+          transform: scale(1.1);
+        }
+      }
+      p{
+        display: grid;
+        place-items: center;
+      }
+    }
+    .boxes{
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      .box{
+        width: 50%;
+        height: 80%;
+        border-radius: 10px;
+        box-shadow: $shadow;
+        background: $side-menu-bg;
+        margin: 0 1em;
+        overflow-y: hidden;
+        h1{
+          text-align: center;
+          padding: .3em 0;
+        }
+        .list{
+          height: 100%;
+          padding: .5em;
+          overflow-y: scroll;
+          overflow-x: hidden;
+          &::-webkit-scrollbar{
+            display: none;
+          }
+          .item{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: .7em 1em;
+            border-radius: 10px;
+            margin-bottom: .5em;
+            .content{
+              margin-left: 1em;
+              .title{
+                font-size: 1.5rem;
+                .date{
+                  font-size: .8rem;
+                  color: #777777;
+                }
+              }
+              .memo{
+                color: #777777;
+                font-size: .9rem;
+              }
+            }
+            .check-box{
+              border: 2px solid #999;
+              border-radius: 5px;
+              width: 25px;
+              height: 25px;
+              display: grid;
+              place-items: center;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+
   }
 }

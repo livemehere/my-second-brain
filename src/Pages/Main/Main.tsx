@@ -1,13 +1,13 @@
 import React from 'react';
 import './Main.scss';
-import avatar from '../../Assets/Images/avatar.jpg';
 import SideMenu from "../../Components/SideMenu/SideMenu";
+import Board from "../../Components/Board/Board";
 
 function Main (){
     return (
         <div className="main">
             <SideMenu/>
-            <div className="board">board</div>
+            <Board/>
         </div>
     )
 }
