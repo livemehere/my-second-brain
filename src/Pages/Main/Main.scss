@@ -3,7 +3,6 @@
 $avatar-size : 100px;
 $border-color : #8d8d8d;
 $side-menu-bg : #eeeeee;
-$main-color: #673AB6;
 $hover-color-bg: #eeeeee;
 $board-bg:#F5F5F5;
 
@@ -155,24 +154,21 @@ $board-bg:#F5F5F5;
       height: 100%;
       .box{
         width: 50%;
-        height: 80%;
+        height: 88%;
         border-radius: 10px;
         box-shadow: $shadow;
         background: $side-menu-bg;
         margin: 0 1em;
-        overflow-y: hidden;
+        //overflow-y: hidden;
         h1{
           text-align: center;
           padding: .3em 0;
         }
         .list{
-          height: 100%;
+          height: inherit;
           padding: .5em;
           overflow-y: scroll;
           overflow-x: hidden;
-          &::-webkit-scrollbar{
-            display: none;
-          }
           .item{
             display: flex;
             justify-content: space-between;
@@ -188,6 +184,12 @@ $board-bg:#F5F5F5;
                 .date{
                   font-size: .8rem;
                   color: #777777;
+                }
+                .d-day{
+                  margin-left: 1em;
+                  font-size: .8rem;
+                  font-weight: 600;
+                  color: #ff6868;
                 }
               }
               .memo{

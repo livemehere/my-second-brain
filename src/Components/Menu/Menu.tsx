@@ -1,16 +1,11 @@
 import React from "react";
+import MenuItem from "../MenuItem/MenuItem";
 
 function Menu(){
     return (
         <div className="menu">
-            <div className="item">
-                <i className="fa-solid fa-calendar"></i>
-                <p>일정</p>
-            </div>
-            <div className="item">
-                <i className="fa-solid fa-check"></i>
-                <p>완료 일정</p>
-            </div>
+            <MenuItem fontAwesomeIcon="fa-solid fa-calendar" name="일정"  />
+            <MenuItem fontAwesomeIcon="fa-solid fa-check" name="완료 일정"  />
         </div>
     );
 }

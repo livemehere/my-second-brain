@@ -11,8 +11,8 @@ function Login (){
         <div className="login">
             <form className="login-box" onSubmit={handleSubmit}>
                 <h1>로그인</h1>
-                <input type="text"/>
-                <input type="password"/>
+                <input type="text" placeholder="이메일"/>
+                <input type="password" placeholder="비밀번호"/>
                 <button>로그인</button>
             </form>
         </div>

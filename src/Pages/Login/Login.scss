@@ -2,9 +2,6 @@
 @import '../../colors';
 
 .login{
-  & *{
-    font-family: 'Poor Story', cursive;
-  }
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,19 +21,19 @@
     input{
       padding: .5em;
       border: none;
-      font-size: 1.3rem;
       border-bottom: 1px solid #234;
       outline: none;
     }
     button{
       font-size: 1.3rem;
       padding: .5em;
-      border-radius: 30px;
+      border-radius: 10px;
       border: none;
       cursor: pointer;
-      background: #D3CCE3;  /* fallback for old browsers */
-      background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
-      background: $main-gradient; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background-color: $main-color;
+      color: white;
+      font-weight: 700;
+      box-shadow: $shadow;
     }
   }
 }
