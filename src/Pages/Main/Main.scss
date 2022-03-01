@@ -171,6 +171,7 @@ $board-bg:#F5F5F5;
           overflow-x: hidden;
           .item{
             display: flex;
+            position: relative;
             justify-content: space-between;
             align-items: center;
             background-color: #fff;
@@ -207,6 +208,19 @@ $board-bg:#F5F5F5;
               display: grid;
               place-items: center;
               cursor: pointer;
+              margin-right: 30px;
+            }
+            .remove{
+              position: absolute;
+              right: 20px;
+              color: #777777;
+              transition: all 200ms;
+              cursor: pointer;
+
+              &:hover{
+                color: salmon;
+                transform: scale(1.1);
+              }
             }
             &:hover{
               border: 1px solid black;

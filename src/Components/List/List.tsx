@@ -2,13 +2,16 @@
 
 import React from "react";
 import Item from "../Item/Item";
+import {ItemType} from "../../modules/Item";
 
-function List(){
+interface ListProps{
+    data:ItemType[];
+}
+
+function List({data}:ListProps){
     return(
         <div className="list">
-            <Item key="123" title="자기" date="2022.03.02" memo="메모는 없다" complete={false}/>
-            <Item key="123" title="자기" date="2022.03.02" memo="메모는 없다" complete={true}/>
-            <Item key="123" title="자기" date="2022.03.02" memo="메모는 없다" complete={true}/>
+            {data.map(item=>(<Item key={item.id} id={item.id} title={item.title} startDate={item.startDate} endDate={item.endDate} memo={item.memo} complete={item.complete}/>))}
         </div>
     )
 }
