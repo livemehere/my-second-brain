@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import {remove, update} from "../../modules/Item";
+import DateChecker from "../../Utils/checkDay";
 
 export interface ItemProps{
     id:number;
@@ -13,6 +14,7 @@ export interface ItemProps{
 
 function Item({id,title, startDate,endDate, memo, complete}:ItemProps){
     const [isComplete,setIsComplete] = useState(complete);
+    const dday = DateChecker.dday(startDate);
     const dispatch = useDispatch();
     const handleCheck = ()=>{
         setIsComplete(prev=>!prev)
@@ -38,7 +40,7 @@ function Item({id,title, startDate,endDate, memo, complete}:ItemProps){
                     </>
                     }
 
-                    <span className="d-day">D-1</span>
+                    <span className="d-day">D{dday>0? "+" : null}{dday == 0 ? "- 오늘" : dday}</span>
                 </div>
                 <p className="memo">{memo}</p>
             </div>
