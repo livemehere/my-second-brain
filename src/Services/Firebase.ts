@@ -6,14 +6,15 @@ import { getFirestore,addDoc, collection,query,where,getDocs,deleteDoc,doc,updat
 import {User} from "@firebase/auth-types";
 import {ItemType} from "../modules/Item";
 
+
 const firebaseConfig = {
-    apiKey: "AIzaSyChXDQf_930DOI0IfosvtedU52iWLoOgPw",
-    authDomain: "my-second-brain-55cc8.firebaseapp.com",
-    projectId: "my-second-brain-55cc8",
-    storageBucket: "my-second-brain-55cc8.appspot.com",
-    messagingSenderId: "1097667023005",
-    appId: "1:1097667023005:web:51b107da6752860dd40474",
-    measurementId: "G-2HL3YB65GP"
+    apiKey: process.env.REACT_APP_APIKEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID,
+    measurementId: process.env.REACT_APP_MEASURMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
