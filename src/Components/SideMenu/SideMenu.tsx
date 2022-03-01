@@ -3,11 +3,13 @@ import React from "react";
 import Profile from "../Profile/Profile";
 import Menu from "../Menu/Menu";
 import {useNavigate} from "react-router-dom";
+import {FirebaseSignOut} from "../../Services/Firebase";
 
 function SideMenu(){
     const navigate = useNavigate();
     const handleLogout = ()=>{
-        navigate('/');
+        // navigate('/');
+        FirebaseSignOut();
     }
     return (
         <div className="side-menu">
