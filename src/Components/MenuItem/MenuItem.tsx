@@ -3,13 +3,13 @@ import React from "react";
 interface MenuItemProps{
     name:string;
     fontAwesomeIcon:string;
-    changeBoardTo?:string;
+    handleClick:()=>void;
 }
 
-function MenuItem({name,fontAwesomeIcon}:MenuItemProps){
+function MenuItem({name,fontAwesomeIcon,handleClick}:MenuItemProps){
     //TODO: changeBoardTo는 받아서 redux 상태 수정하기
     return(
-        <div className="item">
+        <div className="item" onClick={handleClick}>
             <i className={fontAwesomeIcon}/>
             <p>{name}</p>
         </div>
