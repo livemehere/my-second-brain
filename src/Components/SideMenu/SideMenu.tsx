@@ -1,9 +1,9 @@
 import avatar from "../../Assets/Images/avatar.jpg";
-import React from "react";
+import React, {useEffect} from "react";
 import Profile from "../Profile/Profile";
 import Menu from "../Menu/Menu";
 import {useNavigate} from "react-router-dom";
-import {FirebaseSignOut} from "../../Services/Firebase";
+import { FirebaseSignOut} from "../../Services/Firebase";
 
 function SideMenu(){
     const navigate = useNavigate();
@@ -11,6 +11,7 @@ function SideMenu(){
         // navigate('/');
         FirebaseSignOut();
     }
+
     return (
         <div className="side-menu">
             <Profile/>

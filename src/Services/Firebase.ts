@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged } from "firebase/auth";
 import {signOut} from "@firebase/auth";
-import { getFirestore,addDoc, collection,query,where,getDocs,deleteDoc,doc } from "firebase/firestore";
+import { getFirestore,addDoc, collection,query,where,getDocs,deleteDoc,doc,updateDoc } from "firebase/firestore";
 import {User} from "@firebase/auth-types";
 import {ItemType} from "../modules/Item";
 
@@ -27,7 +27,7 @@ export function FirebaseSingUp(email:string,password:string){
         .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
-            addNewuserIntoDB(user as User);
+            addNewuserIntoDB(user as User,password);
             addNewCalendarDataIntoDB(user.uid);
         })
         .catch((error) => {
@@ -86,9 +86,10 @@ interface IUser{
     email:string | null;
     emailVerified:boolean;
     lastSignInTime:string | undefined;
+    password:string;
 }
 
-export async function addNewuserIntoDB(user:User){
+export async function addNewuserIntoDB(user:User,password:string){
     const newUser:IUser = {
         uid:user.uid,
         displayName:user.displayName,
@@ -96,6 +97,7 @@ export async function addNewuserIntoDB(user:User){
         email:user.email,
         emailVerified:user.emailVerified,
         lastSignInTime:user.metadata.lastSignInTime,
+        password:password
     }
     try {
         const docRef = await addDoc(collection(db, "users"), newUser);
@@ -134,13 +136,12 @@ export async function getAllCalendarItems(){
     const querySnapshot = await getDocs(itemsRef);
     const items:ItemType[] = [];
     querySnapshot.forEach((doc)=>{
-        // console.log(doc.data());
         items.push(doc.data() as ItemType);
     })
     return items;
 }
 
-export async function getRemoveItemId(id:number){
+export async function getTargetItemId(id:number){
     const uid = auth.currentUser?.uid;
     const docId = await getCalendarDocId(uid!);
     const itemsRef = collection(db,`calendar/${docId}/items`);
@@ -156,12 +157,24 @@ export async function getRemoveItemId(id:number){
 export async function removeCalendarItem(id:number){
     const uid = auth.currentUser?.uid;
     const docId = await getCalendarDocId(uid!);
-    const itemId = await getRemoveItemId(id);
-    console.log(itemId)
+    const itemId = await getTargetItemId(id);
     if(itemId){
         await deleteDoc(doc(db,`calendar/${docId}/items`,itemId));
     }else{
         console.log('doc 아이디가 없어서 삭제할 수 없습니다.')
     }
+}
 
+export async function toggleCalendarItem(id:number,complete:boolean){
+    const uid = auth.currentUser?.uid;
+    const docId = await getCalendarDocId(uid!);
+    const itemId = await getTargetItemId(id);
+    if(itemId){
+        const docRef = doc(db,`calendar/${docId}/items`,itemId);
+        await updateDoc(docRef,{
+            complete:!complete
+        });
+    }else{
+        console.log('doc 아이디가 없어서 삭제할 수 없습니다.')
+    }
 }

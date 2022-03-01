@@ -32,7 +32,7 @@ function CreateForm(){
     return(
         <div className="create-form">
             <input type="text" placeholder="어떤 일정인가요?" value={title} onChange={(e)=>setTitle(e.target.value)} ref={inputRef}/>
-            <DatePicker dateFormat="yyyy.MM.dd" selected={startDate} onChange={(date:Date) => setStartDate(date)} customInput={<ExampleCustomInput />}/>
+            <DatePicker dateFormat="yyyy.MM.dd" selected={startDate} onChange={(date:Date) => {setStartDate(date);setEndDate(date)}} customInput={<ExampleCustomInput />}/>
             <p>~</p>
             <DatePicker dateFormat="yyyy.MM.dd" selected={endDate} onChange={(date:Date) => setEndDate(date)} customInput={<ExampleCustomInput />}/>
             <input type="text" placeholder="메모" value={memo}  onChange={(e)=>setMemo(e.target.value)}/>

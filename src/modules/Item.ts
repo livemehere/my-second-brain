@@ -1,4 +1,4 @@
-import {addNewCalendarItemIntoDB, removeCalendarItem} from "../Services/Firebase";
+import {addNewCalendarItemIntoDB, removeCalendarItem, toggleCalendarItem} from "../Services/Firebase";
 
 
 export interface ItemType {
@@ -63,13 +63,13 @@ function item(state:ItemType[]=initialState,action:ItemAction){
             const updateItem = state.map(item=>{
                 if(item.id === action.payload){
                     // 타겟 아이디라면
+                    toggleCalendarItem(action.payload,item.complete);
                     item.complete = !item.complete;
                 }
                 return item;
             })
             return [...state];
         case LOAD:
-            console.log(action.payload);
             return action.payload;
         default:
             return state;
