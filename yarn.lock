@@ -1245,7 +1245,7 @@
   "resolved" "https://registry.npmjs.org/@firebase/auth-interop-types/-/auth-interop-types-0.1.6.tgz"
   "version" "0.1.6"
 
-"@firebase/auth-types@0.11.0":
+"@firebase/auth-types@^0.11.0", "@firebase/auth-types@0.11.0":
   "integrity" "sha512-q7Bt6cx+ySj9elQHTsKulwk3+qDezhzRBFC9zlQ1BjgMueUOnGMcvqmU0zuKlQ4RhLSH7MNAdBV2znVaoN3Vxw=="
   "resolved" "https://registry.npmjs.org/@firebase/auth-types/-/auth-types-0.11.0.tgz"
   "version" "0.11.0"
@@ -1313,7 +1313,7 @@
     "@firebase/util" "1.4.3"
     "tslib" "^2.1.0"
 
-"@firebase/firestore-types@2.5.0":
+"@firebase/firestore-types@^2.5.0", "@firebase/firestore-types@2.5.0":
   "integrity" "sha512-I6c2m1zUhZ5SH0cWPmINabDyH5w0PPFHk2UHsjBpKdZllzJZ2TwTkXbDtpHUZNmnc/zAa0WNMNMvcvbb/xJLKA=="
   "resolved" "https://registry.npmjs.org/@firebase/firestore-types/-/firestore-types-2.5.0.tgz"
   "version" "2.5.0"
