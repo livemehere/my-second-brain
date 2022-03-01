@@ -78,7 +78,6 @@ export function observeLoginState(callback:()=>void,callback2:()=>void){
     });
 }
 
-//TODO: 최초 가입시 사용될 db에 회원정보 저장하는 함수
 
 interface IUser{
     uid:string;
@@ -89,7 +88,7 @@ interface IUser{
     lastSignInTime:string | undefined;
     password:string;
 }
-
+//FireStore 저장 함수들
 export async function addNewuserIntoDB(user:User,password:string){
     const newUser:IUser = {
         uid:user.uid,

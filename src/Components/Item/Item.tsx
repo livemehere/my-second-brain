@@ -39,7 +39,6 @@ function Item({id,title, startDate,endDate, memo, complete}:ItemProps){
                         <span className="date">{new Date(endDate).toLocaleDateString()}</span>
                     </>
                     }
-
                     <span className="d-day">D{dday>0? "+" : null}{dday == 0 ? "- 오늘" : dday}</span>
                 </div>
                 <p className="memo">{memo}</p>
